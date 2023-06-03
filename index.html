@@ -1,14 +1,259 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="initial-scale=1, user-scalable=yes, 
+        minimum-scale=1.0, maximum-scale=2.0">
         <script src = "https://code.jquery.com/jquery-3.6.0.js"></script>
         <script>
             $(document).ready(function () {
-                
+                var showmenu = false;
+                $("#show").click(function () {
+                    showmenu = !showmenu
+                    if(showmenu == true){
+                        $("#menu").animate({width: 200}, 1000);
+                        retour = 45
+                        $("#arrow").css({ transform: `rotate(${retour}deg)`})
+                    }
+                    else{
+                        $("#menu").animate({width: 0}, 1000);
+                        console.log($("#arrow").css("transform"))
+                        retour = -135
+                        $("#arrow").css({ transform: `rotate(${retour}deg)`})
+                    }
+                    $("#menu").clearQueue();
+                })
+                var itsProfile = true
+                $("#changer").click(function () {
+                    itsProfile = !itsProfile
+                    if (itsProfile == false){
+                        $("#menu").css("height", "600")
+                        $("#profile").css("display", "none")
+                        $("#career").css("display", "block")
+                        $(this).text('Introduce')
+                    }
+                    else{
+                        $("#menu").css("height", "75")
+                        $("#career").css("display", "none")
+                        $("#profile").css("display", "block")
+                        $(this).text('In Detail')
+                    }
+                })
+                $("#vaAuUn").click(function () {
+                    $(".un").css('display', 'block')
+                    $(".deux").css('display', 'none')
+                    $(".trois").css('display', 'none')
+                })   
+                $("#vaAuDeux").click(function () {
+                    $(".un").css('display', 'none')
+                    $(".deux").css('display', 'block')
+                    $(".trois").css('display', 'none')
+                }) 
+                $("#vaAuTrois").click(function () {
+                    $(".un").css('display', 'none')
+                    $(".deux").css('display', 'none')
+                    $(".trois").css('display', 'block')
+                }) 
+                $("#vaAuTout").click(function () {
+                    $(".un").css('display', 'block')
+                    $(".deux").css('display', 'block')
+                    $(".trois").css('display', 'block')
+                }) 
+                var itsProfileM = true
+                $("#changerM").click(function () {
+                    itsProfileM = !itsProfileM
+                    if (itsProfileM == false){
+                        $("#profile").css("display", "none")
+                        $("#career").css("display", "block")
+                        $("#ALLM").css("display", "inline")
+                        $("#M1").css("display", "inline")
+                        $("#M2").css("display", "inline")
+                        $("#M3").css("display", "inline")
+                        $(this).text('Introduce')
+                    }
+                    else{
+                        $("#career").css("display", "none")
+                        $("#profile").css("display", "block")
+                        $("#ALLM").css("display", "none")
+                        $("#M1").css("display", "none")
+                        $("#M2").css("display", "none")
+                        $("#M3").css("display", "none")
+                        $(this).text('In Detail')
+                    }
+                })
+                $("#M1").click(function () {
+                    $(".un").css('display', 'block')
+                    $(".deux").css('display', 'none')
+                    $(".trois").css('display', 'none')
+                })   
+                $("#M2").click(function () {
+                    $(".un").css('display', 'none')
+                    $(".deux").css('display', 'block')
+                    $(".trois").css('display', 'none')
+                }) 
+                $("#M3").click(function () {
+                    $(".un").css('display', 'none')
+                    $(".deux").css('display', 'none')
+                    $(".trois").css('display', 'block')
+                }) 
+                $("#ALLM").click(function () {
+                    $(".un").css('display', 'block')
+                    $(".deux").css('display', 'block')
+                    $(".trois").css('display', 'block')
+                }) 
             });
         </script>
+        <style>
+            @media screen and (max-width: 900px){
+                body {width: 100%;}
+                #contents{width: 80%;}
+                #show{display: none;}
+                #menuM{display: block;}
+            }
+            @media screen and (min-width: 901px){
+                #contents {width: 900px;}
+                #menuM{display: none;}
+                #show{display: block;}
+            }
+            #show {
+                border-style: none; background-color: white; width: 20px;
+                font-size: 30px; right: 10px; top: 20px; 
+                z-index: 10; position: fixed;
+            }
+            #menu {
+                width: 0px; height: 75px; background-color: white;
+                right: 10px; top: 20px; overflow: hidden; position: fixed;
+                background-color: rgba(255,255, 255, 0);
+            }
+            #arrow {
+                width: 20px; height: 20px; 
+                background-color: rgba(255,255, 255, 0);
+                border: 4px solid red; border-top: 0; border-right: 0; 
+                transform-origin: 50% 50%; transform: rotate(-135deg);
+                position: relative; right: 10px; top: 10px;
+            }
+            #career{
+                display: none; margin: 0 auto; width: 100%;
+            }
+            #profile{
+                margin: 0 auto; width: 100%;
+            }
+            #changer, #changerM{
+                color: red;
+            }
+            h2{
+                white-space: nowrap;
+            }
+            #myImage {
+                width: 150px; height: 150px;
+                margin: 0 auto; background-color: blue;
+                border-radius: 50% 50%;
+            }
+            #myName {
+                width: 200px; margin: 0 auto; text-align: center;
+            }
+            #head {
+                height: 220px;
+                width: 100%;
+                border-bottom-style: dashed;
+                margin-top: 50px;
+            }
+            #contents{
+                margin: 0 auto;
+            }
+            li{
+                font-size: 20px;
+            }
+            .foot{
+                height: 300px;
+
+            }
+            #ALLM, #M1, #M2, #M3{
+                display: none;
+            }
+        </style>
     </head>
     <body>
-        <h1>1234</h1>
+        <button id = "show">
+            <div id = "arrow"></div>
+        </button>
+        <div id = "menu">
+            <h2 id = "changer">
+                In Detail
+            </h2>
+            <h2 id = "vaAuTout">
+                전체
+            </h2>
+            <h2 id = "vaAuUn">
+                1학년 1학기
+            </h2>
+            <h2 id = "vaAuDeux">
+                1학년 2학기
+            </h2>
+            <h2 id = "vaAuTrois">
+                2학년 1학기
+            </h2>
+        </div>
+        <div id = "contents">
+            <div id = "head">
+                <div id = "myImage"></div>
+                <div id = "myName"><h2 >이장준</h2></div>
+            </div>
+            <div id = "menuM">
+                <button id = "changerM">
+                    In Detail
+                </button>
+                <button id = "ALLM">
+                    전체
+                </button>
+                <button id = "M1">
+                    1학년 1학기
+                </button>
+                <button id = "M2">
+                    1학년 2학기
+                </button>
+                <button id = "M3">
+                    2학년 1학기
+                </button>
+            </div>
+            <div id = "profile">
+                <h1>Introduce</h1>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp; 안녕하세요 이장준입니다. 
+                    현재 대학교 2학년 과정을 밟고 있는 학생입니다. 
+                    프로그래밍 과정 특유의 논리정연함이 맘에 들고, 
+                    때문에 배우면 배울수록 점점 재미를 찾는 중입니다. 
+                    프로그래밍 언어를 처음 만져봤을 때의 그 재미를 잊지 않고, 
+                    계속 앞으로 나아가는 사람이 되겠습니다.</p>
+            </div>
+            <div id = "career">
+                <h1>수강했던 과목</h1>
+                <div class = "un">
+                    <h2>1학년 1학기</h2>
+                    <ul>
+                        <li>Java Language</li>
+                        <li>Python Language</li>
+                    </ul>
+                </div>
+                <div class = "deux">
+                    <h2>1학년 2학기</h2>
+                    <ul>
+                        <li>Java Language</li>
+                        <li>C Language</li>
+                    </ul>
+                </div>
+                <div class = "trois">
+                    <h2>2학년 1학기</h2>
+                    <ul>
+                        <li>Liner Algebra</li>
+                        <li>Data Structures</li>
+                        <li>Logic Circuits</li>
+                        <li>Web Programming</li>
+                        <li>Linux Programming</li>
+                    </ul>
+                </div>
+                <div class = "foot">
+            
+                </div>
+            </div>
+        </div>
     </body>
 </html>
