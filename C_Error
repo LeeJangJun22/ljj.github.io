@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char c, s[101], alp[26];
+    int i, j;
+    int* m;
+    scanf("%s", s);
+    int n = strlen(s);
+    for (i = 0; i < 26; i++) {
+        alp[i] = -1;
+    }
+    for (i = 0; i < n; i++) {
+        m = &alp[s[i] - 97];
+        printf("\ns[%d] -97 == %d\n", i, s[i] - 97);
+        printf("alp[%c] = %d\n", s[i], *m);
+        if (*m == -1) {
+            printf("%d %d \n", *m, i);
+            *m = i;
+            printf("%d %d \n", *m, i);
+        }
+    }
+    printf("\n");
+    for (i = 0; i < 26; i++) {
+        printf("%d ", alp[i]);
+    }
+    return 0;
+}
